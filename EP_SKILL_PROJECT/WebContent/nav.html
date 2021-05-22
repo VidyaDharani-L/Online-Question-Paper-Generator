@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style>
+        @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+
+{
+	box-sizing: border-box;
+}
+
+nav {
+  background-color: #861657;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: #fff;
+  position: relative;
+  margin-left: 30px;
+  text-decoration: none;
+}
+
+nav a::after {
+  content: '';
+  border-bottom: 3px solid #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+}
+
+nav a:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+
+        
+    
+		<nav id="navbar">
+			<div style = "position:relative; left:-900px; top:2px; columns: #d60e18 ">
+				<b>EASY PAPERS</b>
+			  </div>
+			
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="faq.html">FAQ</a>
+			<a href="contact.html">Contact</a>
+			<a href="login.html"><b>Login</b></a>
+			<a href="register.html">Register</a>
+					
+		  </nav>
+    </head>
+   <body>
+      <div style = "position:relative; left:80px; bottom:12px; background-color:yellow;">
+         This div has relative positioning.
+      </div>
+   </body>
+</html>
