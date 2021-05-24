@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+------------------------------------------------------------------------------------
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD PAGE</title>
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+  </head>
+<style>
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+header{
+  z-index: 1;
+  position: fixed;
+  background: #22242A;
+  padding: 20px;
+  width: calc(100% - 0%);
+  top: 0;
+  height: 30px;
+}
+
+.left_area h3{
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 900;
+  position:relative; 
+  left:-550px; 
+}
+
+.left_area span{
+  color: #19B3D3;
+}
+
+.logout_btn{
+  padding: 5px;
+  background: #19B3D3;
+  text-decoration: none;
+  float: right;
+  margin-top: -30px;
+  margin-right: 40px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.logout_btn:hover{
+  background: #0B87A6;
+}
+
+.sidebar{
+  z-index: 1;
+  top: 0;
+  background: #2f323a;
+  margin-top: 70px;
+  padding-top: 30px;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: calc(100% - 9%);
+  transition: 0.5s;
+  transition-property: left;
+  overflow-y: auto;
+}
+
+.profile_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar .profile_info .profile_image{
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.sidebar .profile_info h4{
+  color: #ccc;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.sidebar a{
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding: 0px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+
+
+.sidebar a:hover{
+  background: #19B3D3;
+}
+
+.sidebar i{
+  padding-right:10px;
+  
+}
+
+label #sidebar_btn{
+  z-index: 1;
+  color: #fff;
+  position: fixed;
+  cursor: pointer;
+  left: 200px;
+  font-size: 20px;
+  margin: 5px 0;
+  transition: 0.5s;
+  transition-property: color;
+}
+
+label #sidebar_btn:hover{
+  color: #19B3D3;
+}
+
+#check:checked ~ .sidebar{
+  left: -105px;
+}
+
+#check:checked ~ .sidebar a span{
+  display: none;
+}
+
+#check:checked ~ .sidebar a{
+  font-size: 20px;
+  margin-left: 100px;
+  width: 90%;
+}
+
+.content{
+  width: (100% - 250px);
+  margin-top: 60px;
+  padding: 20px;
+  margin-left: 250px;
+  background: url(background.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+#check:checked ~ .content{
+  margin-left: 30px;
+}
+
+#check:checked ~ .sidebar .profile_info{
+  display: none;
+}
+
+#check{
+  display: none;
+}
+
+
+.mobile_nav{
+  display: none;
+}
+
+.content .card p{
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Responsive CSS */
+
+@media screen and (max-width: 780px){
+  .sidebar{
+    display: none;
+  }
+
+  #sidebar_btn{
+    display: none;
+  }
+
+  .content{
+    margin-left: 0;
+    margin-top: 0;
+    padding: 10px 20px;
+    transition: 0s;
+  }
+
+  #check:checked ~ .content{
+    margin-left: 0;
+  }  
+
+  .nav_bar{
+    background: #222;
+    width: (100% - 0px);
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .nav_bar .nav_btn{
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.5s;
+    transition-property: color;
+  }
+
+  .nav_bar .nav_btn:hover{
+    color: #19B3D3;
+  }
+
+  .active{
+    display: block;
+  }
+}</style>
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>EASY PAPER</h3>
+      </div>
+			
+      <div class="right_area">
+        <a href="index.html" class="logout_btn">Logout</a>
+      </div>
+    </header>
+    <!--header area end-->
+    <!--mobile navigation bar end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <div class="profile_info">
+        <img src="images/img3.jpg" class="profile_image" alt="">
+        <h4>PROJECT 5</h4>
+      </div>
+
+   
+    <a href="admin.html"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+     <a href="merge.html"><i class="fas fa-table"></i><span>Add Questions</span></a>
+     <a href="#"><i class="fas fa-cogs"></i><span>View questions</span></a>
+    <a href="mer.html"><i class="fas fa-cogs"></i><span>Change password</span></a>
+     <a href="ab.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+
+    </div>
+    <!--sidebar end-->
+    
+    
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.nav_btn').click(function(){
+        $('.mobile_nav_items').toggleClass('active');
+      });
+    });
+    </script>
+
+  </body>
+</html>
+--------------------------------------------
+<style>
+.group {
+  margin-bottom:40px;
+}
+.group label {
+  font-size: 20px;
+}
+input[type="text"] {
+    font-size:9pt;
+     height:45px;
+     width:300px;
+}
+input[type="text1"] {
+    align:right;
+    font-size:9pt;
+     height:25px;
+     width:150px;
+}
+input[type=submit] {
+    width: 8em;  height: 3em;
+}
+input[type=reset] {
+    width: 8em;  height: 3em;
+}
+
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+body{background-image: url('');}
+body{background-color:#E6B0AA;}
+select{font-size: 20px;}
+legend{font-size: 30px;}
+</style>
+</head>
+<body>
+<div class="group">
+<form action="AdminServlet" method="post">
+<fieldset>
+    <legend>ADD QUESTION</legend><br>
+    <label for="ques">&nbsp;ENTER QUESTION ID:&nbsp;</label>
+    <input type="text1" id="id" name="id"><br><br>
+    <label for="ques">ENTER THE QUESTION:</label>
+    <input type="text" id="ques" name="ques" size="400" ><br><br>
+    <label for="opt1">ENTER THE OPTION 1 :</label>
+    <input type="text" id="opt1" name="opt1"><br><br>
+<label for="opt1">ENTER THE OPTION 2 :</label>
+    <input type="text" id="opt2" name="opt2"><br><br>
+<label for="opt1">ENTER THE OPTION 3 :</label>
+    <input type="text" id="opt3" name="opt3"><br><br>
+<label for="opt1">ENTER THE OPTION 4 :</label>
+    <input type="text" id="opt4" name="opt4"><br><br>
+<label for="ans">Choose the correct answer option:</label>
+<select id="ans">
+  <option value="a">option1</option>
+  <option value="b">option2</option>
+  <option value="c">option3</option>
+  <option value="d">option4</option>
+</select><br><br>
+
+<label for="dlevel">Choose the difficulty level of the question:</label>
+<select id="dlevel">
+  <option value="hard">EASY</option>
+  <option value="medium">MEDIUM</option>
+  <option value="hard">HARD</option>
+</select><br><br>
+<label for="type">Choose the question paper type:</label>
+<select id="type">
+  <option value="jee">JEE MAINS</option>
+  <option value="eamcet">EAMCET</option>
+  <option value="gre">GRE</option>
+  <option value="ielts">IELTS</option>
+  <option value="gate">GATE</option>
+</select><br><br>
+<input type="reset" value="Reset" >&nbsp
+&nbsp&nbsp&nbsp
+<input type="submit" value="Submit">
+</fieldset>
+ </form>
+</div>
+</body>
+</html>

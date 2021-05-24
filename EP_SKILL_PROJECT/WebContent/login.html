@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="login.css">
+        
+    
+		<nav id="navbar">
+			<div style = "position:relative; left:-900px; top:2px; columns: #d60e18 ">
+				<b>EASY PAPERS</b>
+			  </div>
+			
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="faq.html">FAQ</a>
+			<a href="contact.html">Contact</a>
+			<a href="login.html"><b>Login</b></a>
+			<a href="register.html">Register</a>
+					
+		  </nav>
+    </head>
+            <body>
+    
+
+<div class="container">
+	<div class="header">
+		<h2>Login</h2>
+	</div>
+		<form id="form" class="form" action="LoginServlet" method="POST">
+	
+		<div class="form-control">
+			<label for="username">Username</label>
+			<input type="text" placeholder="enter your name" name="username" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		
+		<div class="form-control">
+			<label for="username">Password</label>
+			<input type="password" placeholder="enter your password" name="password"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<p>
+			
+			<input type="checkbox" /><span> Keep me Signed In</span>
+			
+			<span class="forgot" ><a href="forgot.html">Forgot Password?</a></span>
+			
+			</p>
+			
+		<input type="submit" value="login">
+							
+</form>
+</div>
+			</body>
+
+
+</html>

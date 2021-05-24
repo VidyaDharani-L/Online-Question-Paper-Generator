@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: "Poppins", sans-serif;
+}
+
+body{
+ min-height: 100vh;
+ background: url(images/book2.jpg)no-repeat;
+ background-size: cover;
+ background-position: center;
+}
+
+.side-bar{
+ background: rgba(255, 255, 255, 0.1);
+ backdrop-filter: blur(15px);
+ width: 290px;
+ height: 100vh;
+ position: fixed;
+ top: 0;
+ left: -100%;
+ overflow-y: auto;
+ transition: 0.6s ease;
+ transition-property: left;
+}
+
+.side-bar.active{
+ left: 0;
+}
+
+.side-bar .menu{
+ width: 100%;
+ margin-top: 80px;
+}
+
+.side-bar .menu .item{
+ position: relative;
+ cursor: pointer;
+}
+
+.side-bar .menu .item a{
+ color: #fff;
+ font-size: 16px;
+ text-decoration: none;
+ display: block;
+ padding: 5px 30px;
+ line-height: 60px;
+}
+
+.side-bar .menu .item a:hover{
+ background: #8621F8;
+ transition: 0.3s ease;
+}
+
+.side-bar .menu .item i{
+ margin-right: 15px;
+}
+
+.side-bar .menu .item a .dropdown{
+ position: absolute;
+ right: 0;
+ margin: 20px;
+ transition: 0.3s ease;
+}
+
+.side-bar .menu .item .sub-menu{
+ background: rgba(255, 255, 255, 0.1);
+ display: none;
+}
+
+.side-bar .menu .item .sub-menu a{
+ padding-left: 80px;
+}
+
+.rotate{
+ transform: rotate(90deg);
+}
+
+.close-btn{
+ position: absolute;
+ color: #fff;
+ font-size: 20px;
+ right: 0;
+ margin: 25px;
+ cursor: pointer;
+}
+
+.menu-btn{
+ position: absolute;
+ color: #fff;
+ font-size: 20px;
+ margin: 25px;
+ cursor: pointer;
+}
+
+.main{
+ height: 80vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: 40px;
+ color:pink;
+}
+
+
+.main h1{
+ color: rgba(240, 255, 255, 0.8);
+ font-size: 20px;
+ text-align: center;
+ line-height: 80px;
+}
+
+@media (max-width: 900px){
+ .main h1{
+   font-size: 20px;
+   line-height: 60px;
+   color:pink;
+ }
+}
+      </style>
+ </head>
+ <body>
+
+   <div class="menu-btn">
+     <i class="fas fa-bars"></i>
+   </div>
+   <div class="side-bar">
+     <div class="close-btn">
+       <i class="fas fa-times"></i>
+     </div>
+     <div class="menu">
+       <div class="item"><a href="user.html"><i class="fas fa-desktop"></i>Dashboard</a></div>
+       <div class="item">
+         <a class="sub-btn"><i class="fas fa-table"></i>Take an exam<i class="fas fa-angle-right dropdown"></i></a>
+         <div class="sub-menu">
+           <a href="umer.html" class="sub-item">JEE MAINS</a>
+           <a href="umer.html" class="sub-item">EAMCET</a>
+           <a href="umer.html" class="sub-item">GRE</a>
+           <a href="umer.html" class="sub-item">IELTS</a>
+	   <a href="umer.html" class="sub-item">GATE</a>
+         </div>
+       </div>
+       
+       <div class="item">
+         <a class="sub-btn"><i class="fas fa-cogs"></i>Settings<i class="fas fa-angle-right dropdown"></i></a>
+         <div class="sub-menu">
+           <a href="ucp.html" class="sub-item">Change password</a>
+         </div>
+       </div>
+       <div class="item"><a href="uabout.html"><i class="fas fa-info-circle"></i>About</a></div>
+<div class="item"><a href="#"><i class="fas fa-th"></i>LOGOUT</a></div>
+     </div>
+     
+   </div>
+   <section class="main">
+      <center>
+	<pre>
+        <p  style=font-size:20px;font-style:italic;color:pink;text-indent:100px;><b>
+       		Traditionally question papers were generated manually.
+            	Preparing any exam paper is a very challenging task for the educators 
+            	because they have to check whether there is any repetition in the pattern
+            	or not, and other than that security is one of the major concerns 
+        	for them , also due to lack of teaching staff in any institute, creation 
+        	of paper is not at all an easy task. So, here we are proposing an Intelligent 
+        	Automatic Question Paper Generator System which provides storage of 
+        	the data, fast operations, and high security for all its tasks. It can be 
+        	helpful to many educational as well as NGO institutes. Tasks performed by 
+        	this system are automated and because of that storage space, security is 
+        	not a concern anymore. Proposed system works upon Natural Language 
+        	Processing and is fast due to computer based  automation, streamlined, 
+        	randomized and unbiased, secure and generates unique questions and overcomes
+       		the problems of Human based paper generation.</p><pre>
+	</center>
+   </section>
+
+   <script type="text/javascript">
+   $(document).ready(function(){
+     //jquery for toggle sub menus
+     $('.sub-btn').click(function(){
+       $(this).next('.sub-menu').slideToggle();
+       $(this).find('.dropdown').toggleClass('rotate');
+     });
+
+     //jquery for expand and collapse the sidebar
+     $('.menu-btn').click(function(){
+       $('.side-bar').addClass('active');
+       $('.menu-btn').css("visibility", "hidden");
+     });
+
+     $('.close-btn').click(function(){
+       $('.side-bar').removeClass('active');
+       $('.menu-btn').css("visibility", "visible");
+     });
+   });
+   </script>
+
+ </body>
+</html>
+      

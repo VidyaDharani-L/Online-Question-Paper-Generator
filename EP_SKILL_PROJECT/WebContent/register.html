@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <body>
+    <link rel="stylesheet" href="register.css">
+		</body>
+		<nav id="navbar">
+			<div style = "position:relative; left:-900px; top:2px; columns: #d60e18 ">
+				<b>EASY PAPERS</b>
+			  </div>
+			
+			  <a href="index.html">Home</a>
+			  <a href="about.html">About</a>
+			  <a href="faq.html">FAQ</a>
+			  <a href="contact.html">Contact</a>
+			  <a href="login.html">Login</a>
+			  <a href="register.html"><b>Register</b></a>
+				  
+		  </nav>
+
+<div class="container">
+	<div class="header">
+		<h2>Create Account</h2>
+	</div>
+	 <form action="RegisterServlet" onsubmit="return validation()" class="form" method="post">
+        
+        
+        <div class="form-control">
+          <label>Username</label>
+          <input type="text" name=""  id="username" placeholder="Enter your fullname" autocomplete="off">
+          <span id="user" class="text-danger font-weight-bold"> </span>
+        </div>
+        
+        <div class="form-control">
+          <label > Email: </label>
+          <input type="text" name=""  id="email" placeholder="Enter your email" autocomplete="off">
+          <span id="emails" class="text-danger font-weight-bold"> </span>
+        </div>
+        
+      <div class="form-control">
+          <label > Mobile Number: </label>
+          <input type="text" name=""  id="phone" placeholder="Enter your mobile number" autocomplete="off">
+          <span id="phoneno" class="text-danger font-weight-bold"> </span>
+        </div>
+
+        <div class="form-control">
+          <label>Password</label>
+          <input type="password" name=""  id="password" placeholder="Enter your password" autocomplete="off">
+          <span id="passwords" class="text-danger font-weight-bold"> </span>
+          </div>
+        
+      
+        <div class="form-control">
+          <label > Confirm Password </label>
+          <input type="password" name=""  id="cpassword" placeholder="Reenter your password" autocomplete="off">
+          <span id="cfrmpass" class="text-danger font-weight-bold"> </span>
+        </div>
+
+        
+
+        
+
+        
+
+<input type="submit" value="Register">
+      </form><br><br>
+
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+    
+
+    function validation(){
+
+      var user = document.getElementById('username').value;
+      var emails = document.getElementById('email').value;
+      var phoneno = document.getElementById('phone').value;
+      var passwords = document.getElementById('password').value;
+      var cfrmpass = document.getElementById('cpassword').value;
+if(user == ""){
+        document.getElementById('user').innerHTML ="  Please fill the username field";
+        return false;
+      }
+      if((user.length <= 3) || (user.length > 20)) {
+        document.getElementById('user').innerHTML ="  Username lenght should be minimum 3-20 characters";
+       // document.getElementById('user').innerHTML = "<span class='error'> Username lenght should be minimum 3-20 characters</span>";
+       // <div id="user"></div>
+
+        return false;  
+      }
+      if(!isNaN(user)){
+        document.getElementById('user').innerHTML =" only characters are allowed";
+        return false;
+      }
+      
+      if(emails == ""){
+        document.getElementById('emails').innerHTML ="  Please fill the email idx` field";
+        return false;
+      }
+      if(emails.indexOf('@') <= 0 ){
+        document.getElementById('emails').innerHTML ="  @ Invalid Position";
+        return false;
+      }
+
+      if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+        document.getElementById('emails').innerHTML ="  . Invalid Position";
+        return false;
+      }
+      
+      
+      if(phoneno == ""){
+        document.getElementById('phoneno').innerHTML ="  Please fill the mobile NUmber field";
+        return false;
+      }
+      if(isNaN(phoneno)){
+        document.getElementById('phoneno').innerHTML ="  user must write digits only not characters";
+        return false;
+      }
+      if(phoneno.length!=10){
+        document.getElementById('phoneno').innerHTML ="  Mobile Number must be 10 digits only";
+        return false;
+      }
+
+      if(passwords == ""){
+        document.getElementById('passwords').innerHTML ="  Please fill the password field";
+        return false;
+      }
+      if((passwords.length <= 5) || (passwords.length > 20)) {
+        document.getElementById('passwords').innerHTML ="  Passwords lenght must be between  5 and 20";
+        return false;  
+      }
+      
+      if(cfrmpass == ""){
+        document.getElementById('cfrmpass').innerHTML ="  Please fill the confirm your password";
+        return false;
+      }
+
+
+
+      if(passwords!=cfrmpass){
+        document.getElementById('cfrmpass').innerHTML ="Password does not match the confirm password";
+        return false;
+      }
+      
+    }
+
+  </script>
+    
+
+    </body>
+
+</html>
+	
